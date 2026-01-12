@@ -8,9 +8,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
-    
+
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7323802237011820" crossorigin="anonymous"></script>
+
+    <meta name="google-adsense-account" content="ca-pub-7323802237011820">
 
     <style>
         body {
@@ -125,7 +127,7 @@
         .notification {
             background: #fff;
             border-left: 4px solid #3498db;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             border-radius: 4px;
             padding: 16px 20px;
             margin-bottom: 10px;
@@ -192,6 +194,7 @@
                 transform: translateX(400px);
                 opacity: 0;
             }
+
             to {
                 transform: translateX(0);
                 opacity: 1;
@@ -203,6 +206,7 @@
                 transform: translateX(0);
                 opacity: 1;
             }
+
             to {
                 transform: translateX(400px);
                 opacity: 0;
@@ -664,7 +668,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         .ad-top-banner {
@@ -682,7 +686,7 @@
             z-index: 1000;
             background: white;
             border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
         .ad-in-content {
@@ -718,32 +722,25 @@
 <body>
     <!-- Üست BANNER REKLAM (728x90 veya 970x90 Leaderboard) -->
     <div class="ad-container ad-top-banner">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-7323802237011820"
-             data-ad-slot="AUTO"
-             data-ad-format="horizontal"
-             data-full-width-responsive="true"></ins>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7323802237011820" data-ad-slot="AUTO"
+            data-ad-format="horizontal" data-full-width-responsive="true"></ins>
         <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
+            (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
     </div>
 
     <!-- YAN PANEL REKLAM (160x600 Skyscraper) -->
     <div class="ad-container ad-sidebar">
-        <ins class="adsbygoogle"
-             style="display:inline-block;width:160px;height:600px"
-             data-ad-client="ca-pub-7323802237011820"
-             data-ad-slot="AUTO"
-             data-ad-format="vertical"></ins>
+        <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px"
+            data-ad-client="ca-pub-7323802237011820" data-ad-slot="AUTO" data-ad-format="vertical"></ins>
         <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
+            (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
     </div>
 
     <!-- Bildirim Container'ı -->
     <div id="notificationContainer" class="notification-container"></div>
-    
+
     <main>
         <div class="file-upload">
             <label for="xmlfile">XML Dosyası Yükle</label>
@@ -981,13 +978,10 @@
 
     <!-- İÇERİK İÇİ REKLAM (İsteğe bağlı - 336x280 veya 300x250 Rectangle) -->
     <div class="ad-container ad-in-content">
-        <ins class="adsbygoogle"
-             style="display:inline-block;width:336px;height:280px"
-             data-ad-client="ca-pub-7323802237011820"
-             data-ad-slot="AUTO"
-             data-ad-format="rectangle"></ins>
+        <ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px"
+            data-ad-client="ca-pub-7323802237011820" data-ad-slot="AUTO" data-ad-format="rectangle"></ins>
         <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
+            (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
     </div>
 
@@ -1002,11 +996,11 @@
 
             show(title, message, type = 'info', duration = null) {
                 const id = this.nextId++;
-                
+
                 const notification = document.createElement('div');
                 notification.className = `notification ${type}`;
                 notification.setAttribute('data-id', id);
-                
+
                 notification.innerHTML = `
                     <div class="notification-content">
                         <div class="notification-title">${title}</div>
@@ -1014,15 +1008,15 @@
                     </div>
                     <button class="notification-close" onclick="notifications.close(${id})">&times;</button>
                 `;
-                
+
                 this.container.appendChild(notification);
                 this.notifications.set(id, notification);
-                
+
                 // Eğer süre belirtilmişse otomatik kapat
                 if (duration && duration > 0) {
                     setTimeout(() => this.close(id), duration);
                 }
-                
+
                 return id;
             }
 
@@ -2390,14 +2384,14 @@ Boş satır(lar): ${bosSatirlar.map(s => `<b>${s}</b>`).join(", ")}
 
             document.getElementById('malzemeArama').addEventListener('input', function () {
                 const val = this.value.trim().toLowerCase();
-                
+
                 // .karsilastir yazılırsa karşılaştırmayı çalıştır
                 if (val === ".karşılaştır") {
                     this.value = ""; // Input'u temizle
                     malzemeAccordionKarsilastir();
                     return;
                 }
-                
+
                 // Sadece .operasyon yazılmadıysa parça kodu araması yap
                 if (val && !val.startsWith(".")) {
                     if (typeof filtreAccordionListesi === "function") filtreAccordionListesi();
@@ -2763,16 +2757,16 @@ Boş satır(lar): ${bosSatirlar.map(s => `<b>${s}</b>`).join(", ")}
             if (profilUzunlukHatalari.length > 0) {
                 // Gizlenebilir mi kontrolü: Tüm hataların eşleşen profilleri var mı?
                 const tumHatalardaEslesenVar = profilUzunlukHatalari.every(m => m.eslesenler.length > 0);
-                
+
                 const div = document.createElement('div');
                 div.className = 'mismatch-list';
                 div.id = 'profilUzunlukHatalariDiv';
-                
+
                 let gizlemeButonaHtml = "";
                 if (tumHatalardaEslesenVar) {
                     gizlemeButonaHtml = ` <span onclick="toggleProfilUzunlukHatalari()" style="color:#888; font-size:12px; font-weight:normal; cursor:pointer;" title="Tıklayarak gizle">(Buraya tıklayarak gizleyebilirsiniz.)</span>`;
                 }
-                
+
                 div.innerHTML = `<b>Profil tanımında L= miktarı ile çocukların toplam uzunluğu uyuşmayanlar:${gizlemeButonaHtml}</b>
 <ul>
     ${profilUzunlukHatalari.map((m, i) => {
@@ -2826,7 +2820,7 @@ Boş satır(lar): ${bosSatirlar.map(s => `<b>${s}</b>`).join(", ")}
                 }).join("")}
 </ul>`;
                 document.querySelector('main').insertBefore(div, document.getElementById('accordion'));
-                
+
                 setTimeout(() => {
                     div.querySelectorAll('.strike-checkbox').forEach(cb => {
                         cb.addEventListener('change', function () {
@@ -3382,7 +3376,7 @@ Boş satır(lar): ${bosSatirlar.map(s => `<b>${s}</b>`).join(", ")}
                 }, 1000);
             }
             guncelleHataYokDiv();
-            
+
             // Otomatik malzeme karşılaştırması (bildirim için)
             setTimeout(() => {
                 otomatikMalzemeKarsilastirma();
@@ -3714,7 +3708,7 @@ Boş satır(lar): ${bosSatirlar.map(s => `<b>${s}</b>`).join(", ")}
 
                 // Sipariş dışı bırakılan parçaları kontrol etme
                 if (siparisDisiBirak === "1") return;
-                
+
                 // Parça kodunda harf içermeyen, sadece sayı ile 6 karakterden oluşan ve malzeme bilgisi STD olan parçalar için kontrol yapma
                 if (malzeme === "STD" && /^\d{6}$/.test(partCode)) return;
 
@@ -3878,7 +3872,7 @@ Boş satır(lar): ${bosSatirlar.map(s => `<b>${s}</b>`).join(", ")}
                 // Sadece 01-08 arası ERP kodları için ve sipariş dışı olmayanlar için kontrol et
                 if (!erpMalzemeMap[erpCode]) return;
                 if (siparisDisiBirak === "1") return;
-                
+
                 // Parça kodunda harf içermeyen, sadece sayı ile 6 karakterden oluşan ve malzeme bilgisi STD olan parçalar için kontrol yapma
                 if (malzeme === "STD" && /^\d{6}$/.test(partCode)) return;
 
@@ -5439,7 +5433,7 @@ Boş satır(lar): ${bosSatirlar.map(s => `<b>${s}</b>`).join(", ")}
                 const olcuMatch = !olcuFiltre || x.olcu === olcuFiltre;
                 const hammaddeMatch = !hammaddeFiltre || x.hammadde === hammaddeFiltre;
                 const malzemeMatch = !malzemeFiltre || x.malzeme === malzemeFiltre;
-                
+
                 // Operasyon filtresi için özel kontrol
                 let operasyonMatch = true;
                 if (operasyonFiltre) {
@@ -5472,7 +5466,7 @@ Boş satır(lar): ${bosSatirlar.map(s => `<b>${s}</b>`).join(", ")}
                         operasyonMatch = x.operasyonlar && x.operasyonlar.includes(operasyonFiltre);
                     }
                 }
-                
+
                 return olcuMatch && hammaddeMatch && malzemeMatch && operasyonMatch;
             });
 
@@ -5501,7 +5495,7 @@ Boş satır(lar): ${bosSatirlar.map(s => `<b>${s}</b>`).join(", ")}
             const hammaddeSet = new Set();
             const malzemeSet = new Set();
             const operasyonSet = new Set();
-            
+
             // Ana filtreye göre tüm accordion verilerini filtrele
             const allAccordionItems = document.querySelectorAll('.accordion-item');
             allAccordionItems.forEach(item => {
@@ -5515,7 +5509,7 @@ Boş satır(lar): ${bosSatirlar.map(s => `<b>${s}</b>`).join(", ")}
                 let description = "";
                 let uzunluk = "";
                 let profilTipi = "";
-                
+
                 const content = item.querySelector('.accordion-content');
                 if (content) {
                     const rows = content.querySelectorAll('tbody tr');
@@ -5547,7 +5541,7 @@ Boş satır(lar): ${bosSatirlar.map(s => `<b>${s}</b>`).join(", ")}
                         if (alan === "Malzeme") malzeme = deger;
                         if (alan === "İmalat_Tipi") imalatTipi = deger.toUpperCase();
                     });
-                    
+
                     // PROFİL çocuk parçası kontrolü
                     if (
                         isProfilCocuk &&
@@ -5576,8 +5570,8 @@ Boş satır(lar): ${bosSatirlar.map(s => `<b>${s}</b>`).join(", ")}
                     dahilEt = (hammadde || "").toUpperCase() === "STD";
                 } else if (anaFiltre === "diger") {
                     dahilEt = (hammadde || "").toUpperCase() !== "LEVHA" &&
-                              (hammadde || "").toUpperCase() !== "STD" &&
-                              !/(PROFIL|PROFİL|NPU|KOSEBENT|IPE)/i.test((olcu || "") + " " + (description || ""));
+                        (hammadde || "").toUpperCase() !== "STD" &&
+                        !/(PROFIL|PROFİL|NPU|KOSEBENT|IPE)/i.test((olcu || "") + " " + (description || ""));
                 } else {
                     dahilEt = true; // Tümü
                 }
@@ -5586,7 +5580,7 @@ Boş satır(lar): ${bosSatirlar.map(s => `<b>${s}</b>`).join(", ")}
                     if (olcu) olcuSet.add(olcu);
                     if (hammadde) hammaddeSet.add(hammadde);
                     if (malzeme) malzemeSet.add(malzeme);
-                    
+
                     // Operasyon için levha filtresinde ilk operasyonu hesapla
                     if (anaFiltre === "levha" && window.loadedXmlDoc) {
                         const doc = Array.from(window.loadedXmlDoc.querySelectorAll("document")).find(d => {
@@ -5636,7 +5630,7 @@ Boş satır(lar): ${bosSatirlar.map(s => `<b>${s}</b>`).join(", ")}
         ${Array.from(operasyonSet).sort().map(o => `<option value="${o}">${o}</option>`).join("")}
     </select>`;
             }
-            
+
             let filtreHtml = anaFiltreHtml + `
 <div style="margin-bottom:10px; display:flex; gap:12px; align-items:center;">
     <label>Ölçü:</label>
@@ -5936,16 +5930,16 @@ Boş satır(lar): ${bosSatirlar.map(s => `<b>${s}</b>`).join(", ")}
                     document.querySelectorAll('#yeniMalzemeTable .strike-checkbox').forEach(cb => {
                         cb.addEventListener('change', function (e) {
                             e.stopPropagation(); // Event'in üst elementlere gitmesini engelle
-                            
+
                             // levhaSecimSet'i başlat
                             if (!window.levhaSecimSet) {
                                 window.levhaSecimSet = new Set();
                             }
-                            
+
                             const key = this.getAttribute('data-key');
                             const tr = this.closest('tr');
                             const seciliTd = tr.querySelector('.secili-td');
-                            
+
                             if (this.checked) {
                                 window.levhaSecimSet.add(key);
                                 if (tr) {
@@ -5982,7 +5976,7 @@ Boş satır(lar): ${bosSatirlar.map(s => `<b>${s}</b>`).join(", ")}
                 if (parcaKoduTh && parcaKoduTh.textContent.trim() === "Parça Kodu") {
                     parcaKoduTh.style.cursor = "pointer";
                     parcaKoduTh.title = "Tüm parça kodlarını alt alta kopyala";
-                    parcaKoduTh.addEventListener('click', function() {
+                    parcaKoduTh.addEventListener('click', function () {
                         // Tablodaki tüm görünür parça kodlarını topla
                         const kodlar = [];
                         document.querySelectorAll('#yeniMalzemeTable tbody tr').forEach(tr => {
@@ -5996,17 +5990,17 @@ Boş satır(lar): ${bosSatirlar.map(s => `<b>${s}</b>`).join(", ")}
                                 }
                             }
                         });
-                        
+
                         if (kodlar.length === 0) {
                             this.textContent = "Kopyalanacak kod yok!";
                             setTimeout(() => this.textContent = "Parça Kodu", 900);
                             return;
                         }
-                        
+
                         // Alt alta kopyala
                         const text = kodlar.join('\n');
                         navigator.clipboard.writeText(text);
-                        
+
                         // Görsel geri bildirim
                         const originalText = this.textContent;
                         this.style.background = "#ffe066";
@@ -6393,7 +6387,7 @@ Boş satır(lar): ${bosSatirlar.map(s => `<b>${s}</b>`).join(", ")}
                                 const key = cb.getAttribute('data-key');
                                 if (cb.checked) window.levhaSecimSet.add(key);
                                 else window.levhaSecimSet.delete(key);
-                                
+
                                 // Satır stilini güncelle
                                 const tr = cb.closest('tr');
                                 const seciliTd = tr.querySelector('.secili-td');
@@ -6421,7 +6415,7 @@ Boş satır(lar): ${bosSatirlar.map(s => `<b>${s}</b>`).join(", ")}
                             const key = this.getAttribute('data-key');
                             if (this.checked) window.levhaSecimSet.add(key);
                             else window.levhaSecimSet.delete(key);
-                            
+
                             // Satır stilini güncelle
                             const tr = this.closest('tr');
                             const seciliTd = tr.querySelector('.secili-td');
@@ -7270,7 +7264,7 @@ ${detaylar}
                 setTimeout(() => {
                     const th = document.getElementById('siparisDisiParcaKoduTh');
                     if (th) {
-                        th.addEventListener('click', function() {
+                        th.addEventListener('click', function () {
                             // Tablodaki tüm parça kodlarını topla
                             const kodlar = [];
                             document.querySelectorAll('#siparisDisiTable tbody tr td:first-child').forEach(td => {
@@ -7279,17 +7273,17 @@ ${detaylar}
                                     kodlar.push(kod);
                                 }
                             });
-                            
+
                             if (kodlar.length === 0) {
                                 this.textContent = "Kopyalanacak kod yok!";
                                 setTimeout(() => this.textContent = "Parça Kodu", 900);
                                 return;
                             }
-                            
+
                             // Alt alta kopyala
                             const text = kodlar.join('\n');
                             navigator.clipboard.writeText(text);
-                            
+
                             // Görsel geri bildirim
                             const originalText = this.textContent;
                             this.style.background = "#ffe066";
@@ -7407,7 +7401,7 @@ ${detaylar}
                 let ekliMi = false;
                 if (th) {
                     // Tek tıklama ile parça kodlarını kopyala
-                    th.addEventListener('click', function(e) {
+                    th.addEventListener('click', function (e) {
                         // Çift tıklama değilse (tek tıklama)
                         if (e.detail === 1) {
                             setTimeout(() => {
@@ -7420,17 +7414,17 @@ ${detaylar}
                                             kodlar.push(kod);
                                         }
                                     });
-                                    
+
                                     if (kodlar.length === 0) {
                                         this.textContent = "Kopyalanacak kod yok!";
                                         setTimeout(() => this.textContent = "Kod", 900);
                                         return;
                                     }
-                                    
+
                                     // Alt alta kopyala
                                     const text = kodlar.join('\n');
                                     navigator.clipboard.writeText(text);
-                                    
+
                                     // Görsel geri bildirim
                                     const originalText = this.textContent;
                                     this.style.background = "#ffe066";
@@ -7596,9 +7590,9 @@ ${detaylar}
                 // Filtre uygula butonu
                 const btnUygula = document.getElementById('btnLevhaKesimUygula');
                 const textArea = document.getElementById('levhaKesimListesiInput');
-                
+
                 if (btnUygula && textArea) {
-                    btnUygula.onclick = function() {
+                    btnUygula.onclick = function () {
                         const inputText = textArea.value.trim();
                         if (!inputText) {
                             alert("Lütfen parça kodlarını yapıştırın.");
@@ -7630,7 +7624,7 @@ ${detaylar}
                 // Filtre temizle butonu
                 const btnTemizle = document.getElementById('btnLevhaKesimTemizle');
                 if (btnTemizle) {
-                    btnTemizle.onclick = function() {
+                    btnTemizle.onclick = function () {
                         window.levhaFiyatKesimKodlari.clear();
                         notifications.info("Filtre Temizlendi", "Tüm levha parçaları gösteriliyor.", 3000);
                         document.getElementById('btnLevhaParcaFiyat').click();
@@ -7651,7 +7645,7 @@ ${detaylar}
                         const oran = toplamParcaAgirlik / toplamAgirlik;
                         const parcaFiyat = toplamFiyat * oran;
                         const birimFiyat = x.toplamAdet > 0 ? parcaFiyat / x.toplamAdet : 0;
-                        
+
                         return {
                             ...x,
                             toplamParcaAgirlik,
@@ -7665,9 +7659,9 @@ ${detaylar}
                 };
 
                 // Excel'e aktar butonu
-                document.getElementById('btnLevhaExcelAktar').onclick = function() {
+                document.getElementById('btnLevhaExcelAktar').onclick = function () {
                     const toplamFiyat = parseFloat(document.getElementById('levhaToplamFiyat').value) || 0;
-                    
+
                     // Fiyat dağıtılmış mı kontrol et
                     let exportData;
                     if (toplamFiyat > 0) {
@@ -7677,7 +7671,7 @@ ${detaylar}
                             const oran = toplamParcaAgirlik / toplamAgirlik;
                             const parcaFiyat = toplamFiyat * oran;
                             const birimFiyat = x.toplamAdet > 0 ? parcaFiyat / x.toplamAdet : 0;
-                            
+
                             return {
                                 "Parça Kodu": x.partCode,
                                 "Adet": x.toplamAdet,
@@ -7790,10 +7784,10 @@ ${detaylar}
             }
             document.querySelectorAll('.buton-grup button').forEach(btn => btn.classList.remove("active"));
             acikListe = "karsilastir";
-            
+
             // Veri analizini yap
             const sonuc = malzemeKarsilastirmaVeriAnalizi();
-            
+
             if (sonuc.farkliBulunamadi) {
                 area.innerHTML = ""; // Hiçbir şey gösterme
                 showExcelExport(false);
@@ -7821,7 +7815,7 @@ ${detaylar}
                 setTimeout(() => {
                     const th = document.getElementById('karsilastirParcaKoduTh');
                     if (th) {
-                        th.addEventListener('click', function() {
+                        th.addEventListener('click', function () {
                             // Tablodaki tüm parça kodlarını topla
                             const kodlar = [];
                             document.querySelectorAll('#karsilastirTable tbody tr td:first-child').forEach(td => {
@@ -7830,17 +7824,17 @@ ${detaylar}
                                     kodlar.push(kod);
                                 }
                             });
-                            
+
                             if (kodlar.length === 0) {
                                 this.textContent = "Kopyalanacak kod yok!";
                                 setTimeout(() => this.textContent = "Parça Kodu", 900);
                                 return;
                             }
-                            
+
                             // Alt alta kopyala
                             const text = kodlar.join('\n');
                             navigator.clipboard.writeText(text);
-                            
+
                             // Görsel geri bildirim
                             const originalText = this.textContent;
                             this.style.background = "#ffe066";
@@ -7860,29 +7854,29 @@ ${detaylar}
         // Otomatik Malzeme Karşılaştırma Fonksiyonu (bildirim için)
         function otomatikMalzemeKarsilastirma() {
             if (!window.loadedXmlDoc) return;
-            
+
             try {
                 // Sadece veri analizi yap, UI güncelleme
                 const sonuc = malzemeKarsilastirmaVeriAnalizi();
-                
+
                 if (sonuc.farkliBulunamadi) {
                     // Fark yoksa kısa süreliğine bildirim göster
                     notifications.success(
-                        "Malzeme Karşılaştırma", 
-                        "Tüm parçalar malzeme listesinde mevcut.", 
+                        "Malzeme Karşılaştırma",
+                        "Tüm parçalar malzeme listesinde mevcut.",
                         3000
                     );
                 } else {
                     // Fark varsa bildirim ekranda kalsın
                     notifications.warning(
-                        "Malzeme Karşılaştırma Uyarısı", 
+                        "Malzeme Karşılaştırma Uyarısı",
                         `${sonuc.farkliKodlar.length} parça accordionda var ama malzeme listesinde yok. Detaylar için ".karşılaştır" yazın.`,
                         0 // Süresiz, manuel kapanacak
                     );
                 }
             } catch (error) {
                 notifications.error(
-                    "Karşılaştırma Hatası", 
+                    "Karşılaştırma Hatası",
                     "Malzeme karşılaştırma sırasında hata oluştu: " + error.message,
                     0
                 );
@@ -7896,7 +7890,7 @@ ${detaylar}
             // Önce malzeme listesi tablosunu oluştur (geçici bir div'e)
             const tempDiv = document.createElement('div');
             tempDiv.innerHTML = yeniMalzemeListesi();
-            
+
             // Malzeme listesi tablosundan parça kodlarını al
             const malzemeKodlari = new Set();
             const malzemeTable = tempDiv.querySelector('table tbody');
@@ -7916,7 +7910,7 @@ ${detaylar}
                             } else {
                                 partCodeIndex = 0; // Checkbox yoksa 1. sütun
                             }
-                            
+
                             let partCode = cells[partCodeIndex].innerText.trim();
                             if (partCode) {
                                 // Revizyonu kaldır (tabloda zaten kaldırılmış ama yine de kontrol edelim)
@@ -7931,17 +7925,17 @@ ${detaylar}
             // Accordiondaki parça kodlarını al (adet bilgisi ile, revizyonsuz)
             const accordionKodMap = {}; // { partCode (revizyonsuz): { toplamAdet, orijinalKod } }
             const accordionItems = document.querySelectorAll('.accordion-item');
-            
+
             accordionItems.forEach(item => {
                 // Sadece ana parçaları al (çocuk parçaları hariç tut)
                 // Eğer parent'ı accordion-content ise, bu bir çocuk parçadır
                 if (item.parentElement && item.parentElement.classList.contains('accordion-content')) {
                     return;
                 }
-                
+
                 const title = item.querySelector('.accordion-title');
                 if (!title) return;
-                
+
                 const kodMatch = title.innerHTML.match(/<b[^>]*>(.*?)<\/b>/);
                 const orijinalPartCode = kodMatch ? kodMatch[1].trim() : "";
                 if (!orijinalPartCode) return;
@@ -7957,7 +7951,7 @@ ${detaylar}
                 let imalatTipi = "";
                 let description = "";
                 let name = "";
-                
+
                 const content = item.querySelector('.accordion-content');
                 if (content) {
                     const rows = content.querySelectorAll('tbody tr');
@@ -7973,7 +7967,7 @@ ${detaylar}
 
                 // Sipariş dışı olanları hariç tut
                 if (siparisDisiBirak === "1") return;
-                
+
                 // İmalat tipi MNG veya MAK olanları ve parça kodu MNG/MAK ile başlayanları hariç tut
                 if (imalatTipi === "MNG" || imalatTipi === "MAK" || orijinalPartCode.toUpperCase().startsWith("MNG") || orijinalPartCode.toUpperCase().startsWith("MAK")) return;
 
@@ -8025,12 +8019,12 @@ ${detaylar}
 
         function filtreAccordionListesi() {
             const arama = (document.getElementById('malzemeArama').value || "").toLowerCase();
-            
+
             // . ile başlıyorsa arama yapma (kasmaması için)
             if (arama.startsWith(".")) {
                 return;
             }
-            
+
             const items = document.querySelectorAll('.accordion-item');
             items.forEach(item => {
                 const title = item.querySelector('.accordion-title');
@@ -8124,7 +8118,7 @@ ${detaylar}
             // Operasyon filtresi için: diğer filtrelere göre daralt
             const operasyonList = getFilteredMalzemeList(window.loadedXmlDoc, anaFiltre, olcuFiltre, hammaddeFiltre, malzemeFiltre, "");
             const operasyonSet = new Set();
-            operasyonList.forEach(x => { 
+            operasyonList.forEach(x => {
                 if (x.operasyonlar && Array.isArray(x.operasyonlar)) {
                     x.operasyonlar.forEach(op => {
                         if (op && op.trim()) operasyonSet.add(op.trim());
@@ -8146,7 +8140,7 @@ ${detaylar}
             olcuFiltreElem.innerHTML = `<option value="">Ölçü: Tümü</option>` + Array.from(olcuSet).sort().map(o => `<option value="${o}">${o}</option>`).join("");
             hammaddeFiltreElem.innerHTML = `<option value="">Hammadde: Tümü</option>` + Array.from(hammaddeSet).sort().map(h => `<option value="${h}">${h}</option>`).join("");
             malzemeFiltreElem.innerHTML = `<option value="">Malzeme: Tümü</option>` + Array.from(malzemeSet).sort().map(m => `<option value="${m}">${m}</option>`).join("");
-            
+
             if (operasyonFiltreElem) {
                 operasyonFiltreElem.innerHTML = `<option value="">Operasyon: Tümü</option>` + Array.from(operasyonSet).sort().map(o => `<option value="${o}">${o}</option>`).join("");
             }
@@ -13052,34 +13046,34 @@ ${detaylar}
                 headers.forEach((header, index) => {
                     // Zaten sortable sınıfı varsa, bu tabloya dokunma
                     if (header.classList.contains('sortable')) return;
-                    
+
                     header.classList.add('sortable');
                     header.setAttribute('data-sort-direction', 'none'); // none, asc, desc
                     header.setAttribute('data-original-order', ''); // Orijinal sıralama için
-                    
+
                     // Ok butonunu ekle
                     const arrow = document.createElement('span');
                     arrow.className = 'sort-arrow';
                     arrow.innerHTML = ' ↕';
                     arrow.style.cssText = 'cursor: pointer; margin-left: 5px; user-select: none; float: right;';
                     header.appendChild(arrow);
-                    
+
                     // Parça Kodu başlığı için özel stil ve kopyalama eventi
                     const headerText = header.innerText.replace(' ↕', '').replace(' ↑', '').replace(' ↓', '').trim();
                     if (headerText.toLowerCase().includes('parça kodu') || headerText.toLowerCase().includes('parca kodu')) {
                         header.style.cursor = 'copy';
                         header.title = '📋 Tıkla: Tüm parça kodlarını kopyala';
-                        
+
                         // SADECE Parça Kodu başlığına kopyalama eventi ekle
-                        header.addEventListener('click', function(e) {
+                        header.addEventListener('click', function (e) {
                             // Eğer ok butonuna tıklandıysa, hiçbir şey yapma
                             if (e.target === arrow) return;
-                            
+
                             const tbody = table.querySelector('tbody');
                             if (tbody) {
                                 const rows = tbody.querySelectorAll('tr');
                                 const parcaKodlari = [];
-                                
+
                                 rows.forEach(row => {
                                     const cells = row.querySelectorAll('td');
                                     if (cells.length > 0) {
@@ -13087,19 +13081,19 @@ ${detaylar}
                                         const anaFiltreElem = document.getElementById('accAnaFiltre');
                                         const anaFiltre = anaFiltreElem ? anaFiltreElem.value : "";
                                         const isLevha = anaFiltre === "levha";
-                                        
+
                                         // Levha: 2. sütun (index 1), Diğer: 1. sütun (index 0)
                                         const kodIndex = isLevha ? 1 : 0;
                                         const parcaKodu = cells[kodIndex] ? cells[kodIndex].innerText.trim() : "";
-                                        
+
                                         if (parcaKodu && !parcaKodlari.includes(parcaKodu)) {
                                             parcaKodlari.push(parcaKodu);
                                         }
                                     }
                                 });
-                                
+
                                 const copyText = parcaKodlari.join('\n');
-                                
+
                                 if (navigator.clipboard && navigator.clipboard.writeText) {
                                     navigator.clipboard.writeText(copyText).then(() => {
                                         console.log('Parça kodları kopyalandı:', parcaKodlari.length + ' adet');
@@ -13120,22 +13114,22 @@ ${detaylar}
                         });
                     }
                     // DİĞER BAŞLIKLARA HİÇBİR EVENT EKLEMİYORUZ
-                    
+
                     // Ok butonuna tıklama eventi
-                    arrow.addEventListener('click', function(e) {
+                    arrow.addEventListener('click', function (e) {
                         e.stopPropagation(); // Başlık click eventini engelle
-                        
+
                         const tbody = table.querySelector('tbody');
                         if (!tbody) return;
-                        
+
                         const rows = Array.from(tbody.querySelectorAll('tr'));
                         const currentDirection = header.getAttribute('data-sort-direction');
-                        
+
                         // Orijinal sıralamayı sakla
                         if (currentDirection === 'none') {
                             header.setAttribute('data-original-order', rows.map(row => row.outerHTML).join(''));
                         }
-                        
+
                         // Diğer başlıkların sınıflarını temizle
                         headers.forEach(h => {
                             h.classList.remove('sort-asc', 'sort-desc');
@@ -13145,14 +13139,14 @@ ${detaylar}
                                 if (otherArrow) otherArrow.innerHTML = ' ↕';
                             }
                         });
-                        
+
                         let newDirection = 'asc';
                         if (currentDirection === 'none') newDirection = 'asc';
                         else if (currentDirection === 'asc') newDirection = 'desc';
                         else if (currentDirection === 'desc') newDirection = 'none';
-                        
+
                         header.setAttribute('data-sort-direction', newDirection);
-                        
+
                         if (newDirection === 'none') {
                             // Orijinal sıralamaya dön
                             const originalOrder = header.getAttribute('data-original-order');
@@ -13166,20 +13160,20 @@ ${detaylar}
                             const sortedRows = rows.sort((a, b) => {
                                 const cellA = a.querySelectorAll('td')[index];
                                 const cellB = b.querySelectorAll('td')[index];
-                                
+
                                 if (!cellA || !cellB) return 0;
-                                
+
                                 const valueA = cellA.innerText.trim();
                                 const valueB = cellB.innerText.trim();
-                                
+
                                 // Sayı kontrolü
                                 const numA = parseFloat(valueA.replace(/[^\d.,\-]/g, '').replace(',', '.'));
                                 const numB = parseFloat(valueB.replace(/[^\d.,\-]/g, '').replace(',', '.'));
-                                
+
                                 if (!isNaN(numA) && !isNaN(numB)) {
                                     return newDirection === 'asc' ? numA - numB : numB - numA;
                                 }
-                                
+
                                 // String karşılaştırması
                                 if (newDirection === 'asc') {
                                     return valueA.localeCompare(valueB, 'tr');
@@ -13187,11 +13181,11 @@ ${detaylar}
                                     return valueB.localeCompare(valueA, 'tr');
                                 }
                             });
-                            
+
                             // Sıralanmış satırları tabloya yerleştir
                             tbody.innerHTML = '';
                             sortedRows.forEach(row => tbody.appendChild(row));
-                            
+
                             // Görsel gösterge
                             header.classList.add(newDirection === 'asc' ? 'sort-asc' : 'sort-desc');
                             arrow.innerHTML = newDirection === 'asc' ? ' ↑' : ' ↓';
@@ -13203,12 +13197,12 @@ ${detaylar}
 
         // Sayfa yüklendiğinde ve yeni tablolar oluşturulduğunda çalıştır
         document.addEventListener('DOMContentLoaded', initTableSorting);
-        
+
         // MutationObserver ile dinamik olarak eklenen tabloları da yakalayalım
-        const observer = new MutationObserver(function(mutations) {
-            mutations.forEach(function(mutation) {
+        const observer = new MutationObserver(function (mutations) {
+            mutations.forEach(function (mutation) {
                 if (mutation.type === 'childList') {
-                    mutation.addedNodes.forEach(function(node) {
+                    mutation.addedNodes.forEach(function (node) {
                         if (node.nodeType === 1) { // Element node
                             if (node.tagName === 'TABLE') {
                                 setTimeout(initTableSorting, 100);
@@ -13220,7 +13214,7 @@ ${detaylar}
                 }
             });
         });
-        
+
         observer.observe(document.body, {
             childList: true,
             subtree: true
